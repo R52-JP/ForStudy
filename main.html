@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>メッセージ</title>
+  <title>漢字の練習</title>
   <style>
     .mondai {
       display: inline-block;
@@ -18,7 +18,7 @@
       mondais = data.split("\n")
       html = ""
       for ( let i = 0; i < mondais.length; i++ ) {
-        mondais[i] = mondais[i].split(`"`)
+        mondais[i] = mondais[i].split(`＠`)
         html = html + `<div class="mondai"><p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)　　</p></div>`
       }
       document.getElementById('this').innerHTML = html ;
