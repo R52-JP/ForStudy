@@ -15,7 +15,7 @@
       mondais = data.split("\n")
       html = ""
       for ( let i = 0; i < mondais.length; i++ ) {
-        mondais[i] = mondais[i].split(`""`)
+        mondais[i] = mondais[i].split(`"`)
         html = html + `<p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)</p>`
       }
       document.getElementById('this').innerHTML = html ;
