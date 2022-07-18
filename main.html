@@ -19,6 +19,7 @@
       html = ""
       for ( let i = 0; i < mondais.length; i++ ) {
         mondais[i] = mondais[i].split(`＠`)
+        if ( mondais[i][0] == undefined ) { mondais[i][0] == "" }
         if ( mondais[i][1] == undefined ) { mondais[i][1] == "" }
         if ( mondais[i][2] == undefined ) { mondais[i][2] == "" }
         html = html + `<div class="mondai"><p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)　　</p></div>`
