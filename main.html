@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>メッセージ</title>
+  <style>
+.fukidashi {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fukidashi:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -23px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.fukidashi:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+h1 {
+  border-bottom: double 5px #FFC778;
+}
+
+p {
+  line-height: 0.5;
+  font-family: "Hiragino Maru Gothic ProN W4"
+}
+
+a {
+  line-height: 0.5;
+  font-family: "Hiragino Maru Gothic ProN W4"
+}
+.option_menu {
+  float: right;
+  line-height: 0.5;
+  font-family: "Hiragino Maru Gothic ProN W4"
+}
+  </style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript">
+    url = "mondai.txt";
+    $.get(url, (data) => {
+      console.log(data)
+      mondais = data.split("\n\n")
+      html = ""
+      for ( let i = 0; i < mondais.length; i++ ) {
+        mondais[i] = mondais[i].split(`""`)
+        html = html + `<p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)</p>`
+      }
+      document.getElementById('this').innerHTML = html ;
+    });
+  </script>
+  <h1漢字の練習</h1>
+  <div id="this">
+  </div>
+  <p>　</p>
+</body>
+</html>
