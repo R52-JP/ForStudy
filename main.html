@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <title>メッセージ</title>
   <style>
+    .mondai {
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -16,7 +19,7 @@
       html = ""
       for ( let i = 0; i < mondais.length; i++ ) {
         mondais[i] = mondais[i].split(`"`)
-        html = html + `<p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)</p>`
+        html = html + `<div class="mondai"><p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)</p></div>`
       }
       document.getElementById('this').innerHTML = html ;
     });
