@@ -11,26 +11,7 @@
   </style>
 </head>
 <body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script language="javascript" type="text/javascript">
-    url = "mondai.txt";
-    $.get(url, (data) => {
-      console.log(data)
-      mondais = data.split("\n")
-      html = ""
-      for ( let i = 0; i < mondais.length; i++ ) {
-        mondais[i] = mondais[i].split(`＠`)
-        if ( mondais[i][0] == undefined ) { mondais[i][0] == "" }
-        if ( mondais[i][1] == undefined ) { mondais[i][1] == "" }
-        if ( mondais[i][2] == undefined ) { mondais[i][2] == "" }
-        html = html + `<div class="mondai"><p>${mondais[i][0]}<b>${mondais[i][1]}</b>${mondais[i][2]}　(　　　)　　</p></div>`
-      }
-      document.getElementById('this').innerHTML = html ;
-    });
-  </script>
-  <h1漢字の練習</h1>
-  <div id="this">
-  </div>
-  <p>　</p>
+  <script></script>
+  <h1（きっと）勉強に役立つファイル</h1>
 </body>
 </html>
