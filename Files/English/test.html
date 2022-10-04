@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style>
+    h1 {
+        border-bottom: double 5px #FFC778;
+    }
+    a {
+        line-height: 1.6;
+        font-family: "Hiragino Maru Gothic ProN W4";
+        font-size:  40px;
+        color: black
+    }
+
+    .buttons > a > mark {
+        background-color: #cecece;
+    }
+
+    .body > a > mark {
+        background-color: #fff9ac;
+    }
+  </style>
+</head>
+<body>
+  <h1>テスト</h1>
+
+  <div class="buttons">
+    <a><mark onclick="hide_english()">（英語を隠す）</mark></a><a>　　　</a><a><mark onclick="hide_japanese()">（日本語を隠す）</mark></a><br><br><br><br>
+  </div>
+  
+  <div class="body">
+  <a><mark id="1a">discover</mark></a><a>……</a><a><mark id="1b">発見する</mark></a>
+  </div>
+
+  <script>
+    let tc = 1  //単語の数
+
+    let change_color = (id) => {
+        let a = document.getElementById(id);
+        if (a.style.color == "black") {
+            a.style.color = "#fff9ac";
+        }
+        else {
+            a.style.color = "black";
+        }
+    }
+
+    let hide_english = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+    }
+
+    let hide_japanese = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+    }
+
+    for(let i=1;i<=tc;i++) {
+        let id = i + "a";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    for(let i=1;i<=tc;i++) {
+        let id = i + "b";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    
+  </script>
+</body>
+</html>
