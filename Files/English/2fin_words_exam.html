@@ -46,7 +46,8 @@
     });
   </script>
   <script>
-    let change_color = (id) => {
+    $(window).load(function () {
+      let change_color = (id) => {
         let a = document.getElementById(id);
         if (a.style.color == "black") {
             a.style.color = "#fff9ac";
@@ -95,6 +96,8 @@
         a.setAttribute('onclick', clickevent);
         console.log(a.onclick);
     };
+    });
+    
 
   </script>
   <h1>英単語テスト -2学期中間テスト-</h1>
