@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script language="javascript" type="text/javascript">
     url = "2fin.txt";
     $.get(url, (data) => {
@@ -47,37 +47,36 @@
         let a = document.getElementById(id);
         if (a.style.color == "black") {
             a.style.color = "#fff9ac";
-        }
-        else {
+        } else {
             a.style.color = "black";
-        }
-    }
+        };
+    };
 
     let hide_english = () => {
         for(let i=1;i<=tc;i++) {
             let id = i + "a";
             let a = document.getElementById(id);
             a.style.color = "#fff9ac";
-        }
+        };
         for(let i=1;i<=tc;i++) {
             let id = i + "b";
             let a = document.getElementById(id);
             a.style.color = "black";
-        }
-    }
+        };
+    };
 
     let hide_japanese = () => {
         for(let i=1;i<=tc;i++) {
             let id = i + "a";
             let a = document.getElementById(id);
             a.style.color = "black";
-        }
+        };
         for(let i=1;i<=tc;i++) {
             let id = i + "b";
             let a = document.getElementById(id);
             a.style.color = "#fff9ac";
-        }
-    }
+        };
+    };
 
     for(let i=1;i<=tc;i++) {
         let id = i + "a";
@@ -85,14 +84,15 @@
         let clickevent = "change_color(\"" + id + "\");"
         a.setAttribute('onclick', clickevent);
         console.log(a.onclick);
-    }
+    };
     for(let i=1;i<=tc;i++) {
         let id = i + "b";
         let a = document.getElementById(id);
         let clickevent = "change_color(\"" + id + "\");"
         a.setAttribute('onclick', clickevent);
         console.log(a.onclick);
-    }
+    };
+
   </script>
   <h1>英単語テスト -2学期中間テスト-</h1>
 
