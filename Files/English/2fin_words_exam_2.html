@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>英単語テスト -2学期期末テスト-</title>
+  <style>
+    h1 {
+        border-bottom: double 5px #FFC778;
+    }
+    a {
+        line-height: 1.6;
+        font-family: "Hiragino Maru Gothic ProN W4";
+        font-size:  40px;
+        color: black
+    }
+
+    .buttons > a > mark {
+        background-color: #cecece;
+    }
+
+    .body > a > mark {
+        background-color: #fff9ac;
+    }
+  </style>
+</head>
+<body>
+  <h1>英単語テスト -2学期期末テスト-</h1>
+
+  <div class="buttons">
+    <a><mark onclick="hide_english()">（英語を隠す）</mark></a><a>　　　</a><a><mark onclick="hide_japanese()">（日本語を隠す）</mark></a><br><br>
+  </div>
+  
+  <div class="body">
+    <a><mark id="1a">add</mark></a><a>……</a><a><mark id="1b">加える，足す</mark></a><br>
+    <a><mark id="2a">addtion</mark></a><a>……</a><a><mark id="2b">加えること，追加事項，足し算</mark></a><br>
+    <a><mark id="3a">in addtion</mark></a><a>……</a><a><mark id="3b">さらに</mark></a><br>
+    <a><mark id="4a">blond</mark></a><a>……</a><a><mark id="4b">金髪の</mark></a><br>
+    <a><mark id="5a">the day after tommorrow</mark></a><a>……</a><a><mark id="5b">明後日</mark></a><br>
+    <a><mark id="6a">the day before yesterday</mark></a><a>……</a><a><mark id="6b">一昨日</mark></a><br>
+    <a><mark id="7a">make a bed</mark></a><a>……</a><a><mark id="7b">ベッドを整える</mark></a><br>
+    <a><mark id="8a">feed</mark></a><a>……</a><a><mark id="8b">食べ物を与える</mark></a><br>
+    <a><mark id="9a">by</mark></a><a>……</a><a><mark id="9b">[前]～のそばに，～によって</mark></a><br>
+    <a><mark id="10a">suddenly</mark></a><a>……</a><a><mark id="10b">突然に</mark></a><br>
+    <a><mark id="11a">into</mark></a><a>……</a><a><mark id="11b">[前]～の中へ</mark></a><br>
+    <a><mark id="12a">hole</mark></a><a>……</a><a><mark id="12b">穴</mark></a><br>
+    <a><mark id="13a">disappear</mark></a><a>……</a><a><mark id="13b">消える，見えなくなる</mark></a><br>
+    <a><mark id="14a">appear</mark></a><a>……</a><a><mark id="14b">出現する</mark></a><br>
+    <a><mark id="15a">fall</mark></a><a>……</a><a><mark id="15b">[動]落ちる，[名]秋，落下</mark></a><br>
+    <a><mark id="16a">hit</mark></a><a>……</a><a><mark id="16b">あたる，打つ</mark></a><br>
+    <a><mark id="17a">mean</mark></a><a>……</a><a><mark id="17b">[動]意味する</mark></a><br>
+    <a><mark id="18a">shape</mark></a><a>……</a><a><mark id="18b">形</mark></a><br>
+    <a><mark id="19a">belt</mark></a><a>……</a><a><mark id="19b">ベルト，帯，分布地域，地帯</mark></a><br>
+    <a><mark id="20a">tie</mark></a><a>……</a><a><mark id="20b">ネクタイ</mark></a><br>
+    <a><mark id="21a">anyway</mark></a><a>……</a><a><mark id="21b">とにかく</mark></a><br>
+    <a><mark id="22a">by the way</mark></a><a>……</a><a><mark id="22b">ところで</mark></a><br>
+    <a><mark id="23a">around</mark></a><a>……</a><a><mark id="23b">[前]～の周りに，[副]あちこちを</mark></a><br>
+    <a><mark id="24a">careful</mark></a><a>……</a><a><mark id="24b">[形]注意深い，慎重な</mark></a><br>
+    <a><mark id="25a">careless</mark></a><a>……</a><a><mark id="25b">[形]うっかりした，注意力の無い</mark></a><br>
+    <a><mark id="26a">cry</mark></a><a>……</a><a><mark id="26b">泣く，叫ぶ</mark></a><br>
+    <a><mark id="27a">not ～ at all</mark></a><a>……</a><a><mark id="27b">全く～ない</mark></a><br>
+    <a><mark id="28a">Can you ～?</mark></a><a>……</a><a><mark id="28b">～してくれる？</mark></a><br>
+    <a><mark id="29a">Could you ～?</mark></a><a>……</a><a><mark id="29b">～してくれますか？</mark></a><br>
+    <a><mark id="30a">Can I ～?</mark></a><a>……</a><a><mark id="30b">～してもいいですか＿</mark></a><br>
+    <a><mark id="31a">May I ～?</mark></a><a>……</a><a><mark id="31b">～してもいいですか？</mark></a><br>
+    <a><mark id="32a">You are[You're] welcome.</mark></a><a>……</a><a><mark id="32b">どういたしまして。</mark></a><br>
+    <a><mark id="33a">My pleasure.</mark></a><a>……</a><a><mark id="33b">どういたしまして。</mark></a><br>
+    <a><mark id="34a">(英語における)形容詞</mark></a><a>……</a><a><mark id="34b">名詞を修飾</mark></a><br>
+    <a><mark id="35a">(英語における)副詞</mark></a><a>……</a><a><mark id="35b">動詞，形容詞，副詞を修飾</mark></a><br>
+    <a><mark id="36a">hard</mark></a><a>……</a><a><mark id="36b">[形]かたい，難しい，厳しい，[副]一生懸命に</mark></a><br>
+    <a><mark id="37a">home</mark></a><a>……</a><a><mark id="37b">[名]家，[副]家にいる，在宅の</mark></a><br>
+    <a><mark id="38a">a lot of ～</mark></a><a>……</a><a><mark id="38b">[[形]の働き]たくさんの</mark></a><br>
+    <a><mark id="39a">a lot</mark></a><a>……</a><a><mark id="39b">[[副]の働き]大いに</mark></a><br>
+    <a><mark id="40a">day</mark></a><a>……</a><a><mark id="40b">(24時間からなる)1日，曜日</mark></a><br>
+    <a><mark id="41a">date</mark></a><a>……</a><a><mark id="41b">(特定の)日，日付</mark></a><br>
+    <a><mark id="42a">What day of the week is it today?</mark></a><a>……</a><a><mark id="42b">今日は何曜日ですか。</mark></a><br>
+    <a><mark id="43a">What date is it today?</mark></a><a>……</a><a><mark id="43b">今日の日付はなんですか。</mark></a><br>
+  </div>
+
+  <script>
+    let tc = 43  //単語の数
+
+    let change_color = (id) => {
+        let a = document.getElementById(id);
+        if (a.style.color == "black") {
+            a.style.color = "#fff9ac";
+        }
+        else {
+            a.style.color = "black";
+        }
+    }
+
+    let hide_english = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+    }
+
+    let hide_japanese = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+    }
+
+    for(let i=1;i<=tc;i++) {
+        let id = i + "a";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    for(let i=1;i<=tc;i++) {
+        let id = i + "b";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    
+  </script>
+</body>
+</html>
