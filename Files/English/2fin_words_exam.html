@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>英単語テスト -2学期中間テスト-</title>
+  <style>
+    h1 {
+        border-bottom: double 5px #FFC778;
+    }
+    a {
+        line-height: 1.6;
+        font-family: "Hiragino Maru Gothic ProN W4";
+        font-size:  40px;
+        color: black
+    }
+
+    .buttons > a > mark {
+        background-color: #cecece;
+    }
+
+    .body > a > mark {
+        background-color: #fff9ac;
+    }
+  </style>
+</head>
+<body>
+  <h1>英単語テスト -2学期中間テスト-</h1>
+
+  <div class="buttons">
+    <a><mark onclick="hide_english()">（英語を隠す）</mark></a><a>　　　</a><a><mark onclick="hide_japanese()">（日本語を隠す）</mark></a><br><br>
+  </div>
+  
+  <div class="body">
+    <a><mark id="1a">century</mark></a><a>……</a><a><mark id="1b">世紀</mark></a><br>
+    <a><mark id="2a">course</mark></a><a>……</a><a><mark id="2b">コース</mark></a><br>
+    <a><mark id="3a">first prize</mark></a><a>……</a><a><mark id="3b">一位</mark></a><br>
+    <a><mark id="4a">docter</mark></a><a>……</a><a><mark id="4b">医者</mark></a><br>
+    <a><mark id="5a">nurse</mark></a><a>……</a><a><mark id="5b">看護師</mark></a><br>
+    <a><mark id="6a">brave</mark></a><a>……</a><a><mark id="6b">勇敢な</mark></a><br>
+    <a><mark id="7a">help people in need</mark></a><a>……</a><a><mark id="7b">困っている人を助ける</mark></a><br>
+    <a><mark id="8a">smart</mark></a><a>……</a><a><mark id="8b">賢い</mark></a><br>
+    <a><mark id="9a">make a new discovery</mark></a><a>……</a><a><mark id="9b">新たな発見をする</mark></a><br>
+    <a><mark id="10a">strict</mark></a><a>……</a><a><mark id="10b">厳しい</mark></a><br>
+    <a><mark id="11a">strong</mark></a><a>……</a><a><mark id="11b">強い</mark></a><br>
+    <a><mark id="12a">write a beautiful poem</mark></a><a>……</a><a><mark id="12b">美しい詩を書く</mark></a><br>
+    <a><mark id="13a">patient</mark></a><a>……</a><a><mark id="13b">我慢強い</mark></a><br>
+    <a><mark id="14a">become a star overnight</mark></a><a>……</a><a><mark id="14b">一夜にしてスターになる</mark></a><br>
+    <a><mark id="15a">person</mark></a><a>……</a><a><mark id="15b">人(単数)</mark></a><br>
+    <a><mark id="16a">respect</mark></a><a>……</a><a><mark id="16b">尊敬</mark></a><br>
+    <a><mark id="17a">prize</mark></a><a>……</a><a><mark id="17b">賞</mark></a><br>
+    <a><mark id="18a">passion</mark></a><a>……</a><a><mark id="18b">情熱</mark></a><br>
+    <a><mark id="19a">of course</mark></a><a>……</a><a><mark id="19b">もちろん</mark></a><br>
+    <a><mark id="20a">question</mark></a><a>……</a><a><mark id="20b">質問</mark></a><br>
+    <a><mark id="21a">surprised</mark></a><a>……</a><a><mark id="21b">[形]驚いた，驚いている</mark></a><br>
+    <a><mark id="22a">blue</mark></a><a>……</a><a><mark id="22b">[形]憂鬱な，憂鬱になっている</mark></a><br>
+    <a><mark id="23a">busy</mark></a><a>……</a><a><mark id="23b">[形]忙しい</mark></a><br>
+    <a><mark id="24a">depressed</mark></a><a>……</a><a><mark id="24b">[形]落胆した，落胆している</mark></a><br>
+    <a><mark id="25a">nervous</mark></a><a>……</a><a><mark id="25b">[形]不安な，びくびくしている，心配で，緊張して</mark></a><br>
+    <a><mark id="26a">cartoonist</mark></a><a>……</a><a><mark id="26b">漫画家</mark></a><br>
+    <a><mark id="27a">[主語] look [形]</mark></a><a>……</a><a><mark id="27b">[主語]は[形]そうに見える</mark></a><br>
+    <a><mark id="28a">[主語] look like [名]</mark></a><a>……</a><a><mark id="28b">[主語]は[名]に見える</mark></a><br>
+    <a><mark id="29a">put</mark></a><a>……</a><a><mark id="29b">置く，入れる</mark></a><br>
+    <a><mark id="30a">riverbank</mark></a><a>……</a><a><mark id="30b">土手</mark></a><br>
+    <a><mark id="31a">stand</mark></a><a>……</a><a><mark id="31b">屋台</mark></a><br>
+    <a><mark id="32a">free</mark></a><a>……</a><a><mark id="32b">[形]無料の，自由な，～がない</mark></a><br>
+    <a><mark id="33a">symbol</mark></a><a>……</a><a><mark id="33b">象徴</mark></a><br>
+    <a><mark id="34a">late</mark></a><a>……</a><a><mark id="34b">後期の</mark></a><br>
+    <a><mark id="35a">increase</mark></a><a>……</a><a><mark id="35b">増加，増える</mark></a><br>
+    <a><mark id="36a">litter</mark></a><a>……</a><a><mark id="36b">ゴミ</mark></a><br>
+    <a><mark id="37a">path</mark></a><a>……</a><a><mark id="37b">小道</mark></a><br>
+    <a><mark id="38a">behind</mark></a><a>……</a><a><mark id="38b">残って</mark></a><br>
+    <a><mark id="39a">leave behind</mark></a><a>……</a><a><mark id="39b">置き忘れる，放置する</mark></a><br>
+    <a><mark id="40a">exam</mark></a><a>……</a><a><mark id="40b">試験</mark></a><br>
+    <a><mark id="41a">take an exam</mark></a><a>……</a><a><mark id="41b">試験を受ける</mark></a><br>
+    <a><mark id="42a">be getting ～</mark></a><a>……</a><a><mark id="42b">～になりつつある</mark></a><br>
+    <a><mark id="43a">save</mark></a><a>……</a><a><mark id="43b">守る，見守る</mark></a><br>
+    <a><mark id="44a">reduce</mark></a><a>……</a><a><mark id="44b">減らす</mark></a><br>
+    <a><mark id="45a">trash</mark></a><a>……</a><a><mark id="45b">ゴミ</mark></a><br>
+    <a><mark id="46a">recycle</mark></a><a>……</a><a><mark id="46b">再生する</mark></a><br>
+    <a><mark id="47a">clothes</mark></a><a>……</a><a><mark id="47b">衣服</mark></a><br>
+    <a><mark id="48a">straw</mark></a><a>……</a><a><mark id="48b">ストロー</mark></a><br>
+    <a><mark id="49a">promise</mark></a><a>……</a><a><mark id="49b">約束</mark></a><br>
+    <a><mark id="50a">example</mark></a><a>……</a><a><mark id="50b">例</mark></a><br>
+    <a><mark id="51a">for example</mark></a><a>……</a><a><mark id="51b">例えば</mark></a><br>
+  </div>
+
+  <script>
+    let tc = 51  //単語の数
+
+    let change_color = (id) => {
+        let a = document.getElementById(id);
+        if (a.style.color == "black") {
+            a.style.color = "#fff9ac";
+        }
+        else {
+            a.style.color = "black";
+        }
+    }
+
+    let hide_english = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+    }
+
+    let hide_japanese = () => {
+        for(let i=1;i<=tc;i++) {
+            let id = i + "a";
+            let a = document.getElementById(id);
+            a.style.color = "black";
+        }
+        for(let i=1;i<=tc;i++) {
+            let id = i + "b";
+            let a = document.getElementById(id);
+            a.style.color = "#fff9ac";
+        }
+    }
+
+    for(let i=1;i<=tc;i++) {
+        let id = i + "a";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    for(let i=1;i<=tc;i++) {
+        let id = i + "b";
+        let a = document.getElementById(id);
+        let clickevent = "change_color(\"" + id + "\");"
+        a.setAttribute('onclick', clickevent);
+        console.log(a.onclick);
+    }
+    
+  </script>
+</body>
+</html>
