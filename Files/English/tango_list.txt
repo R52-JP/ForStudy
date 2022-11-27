@@ -11,3 +11,41 @@ strict:厳しい
 strong:強い
 write a beautiful poem:美しい詩を書く
 patient:我慢強い
+become a star overnight:一夜にしてスターになる
+person:人(単数)
+respect:尊敬
+prize:賞
+passion:情熱
+of course:もちろん
+question:質問
+surprised:[形]驚いた，驚いている
+blue:[形]憂鬱な，憂鬱になっている
+busy:[形]忙しい
+depressed:[形]落胆した，落胆している
+nervous:[形]不安な，びくびくしている，心配で，緊張して
+cartoonist:漫画家
+[主語] look [形]:[主語]は[形]そうに見える
+[主語] look like [名]:[主語]は[名]に見える
+put:置く，入れる
+riverbank:土手
+stand:屋台
+free:[形]無料の，自由な，～がない
+symbol:象徴
+late:後期の
+increase:増加，増える
+litter:ゴミ
+path:小道
+behind:残って
+leave behind:置き忘れる，放置する
+exam:試験
+take an exam:試験を受ける
+be getting ～:～になりつつある
+save:守る，見守る
+reduce:減らす
+trash:ゴミ
+recycle:再生する
+clothes:衣服
+straw:ストロー
+promise:約束
+example:例
+for example:例えば
