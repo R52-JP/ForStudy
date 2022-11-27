@@ -1,0 +1,43 @@
+add:加える，足す
+addtion:加えること，追加事項，足し算
+in addtion:さらに
+blond:金髪の
+the day after tommorrow:明後日
+the day before yesterday:一昨日
+make a bed:ベッドを整える
+feed:食べ物を与える
+by:[前]～のそばに，～によって
+suddenly:突然に
+into:[前]～の中へ
+hole:穴
+disappear:消える，見えなくなる
+appear:出現する
+fall:[動]落ちる，[名]秋，落下
+hit:あたる，打つ
+mean:[動]意味する
+shape:形
+belt:ベルト，帯，分布地域，地帯
+tie:ネクタイ
+anyway:とにかく
+by the way:ところで
+around:[前]～の周りに，[副]あちこちを
+careful:[形]注意深い，慎重な
+careless:[形]うっかりした，注意力の無い
+cry:泣く，叫ぶ
+not ～ at all:全く～ない
+Can you ～?:～してくれる？
+Could you ～?:～してくれますか？
+Can I ～?:～してもいいですか＿
+May I ～?:～してもいいですか？
+You are[You're] welcome.:どういたしまして。
+My pleasure.:どういたしまして。
+(英語における)形容詞:名詞を修飾
+(英語における)副詞:動詞，形容詞，副詞を修飾
+hard:[形]かたい，難しい，厳しい，[副]一生懸命に
+home:[名]家，[副]家にいる，在宅の
+a lot of ～:[[形]の働き]たくさんの
+a lot:[[副]の働き]大いに
+day:(24時間からなる)1日，曜日
+date:(特定の)日，日付
+What day of the week is it today?:今日は何曜日ですか。
+What date is it today?:今日の日付はなんですか。
