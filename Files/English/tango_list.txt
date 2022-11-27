@@ -1,2 +1,13 @@
-d:a
-a:a
+century:世紀
+course:コース
+first prize:一位
+docter:医者
+nurse:看護師
+brave:勇敢な
+help people in need:困っている人を助ける
+smart:賢い
+make a new discovery:新たな発見をする
+strict:厳しい
+strong:強い
+write a beautiful poem:美しい詩を書く
+patient:我慢強い
