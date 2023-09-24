@@ -35,7 +35,7 @@
 
     // 右角カッコを</a></mark>に置換する関数
     let replace_text_R = (text, index=1) => {
-        let replace_result = "</mark></a>"
+        let replace_result = "</mark></a><a>"
         return text.replace(/\]/g, function(match) { if (--index == 0) return replace_result; else return match; });
     };
 
