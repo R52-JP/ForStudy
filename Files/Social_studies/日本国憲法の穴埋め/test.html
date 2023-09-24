@@ -40,6 +40,7 @@
     <a><mark onclick="hide_all()">（すべて隠す）</mark></a><a>　　　</a><a><mark onclick="show_all()">（すべて表示）</mark></a><br><br>
   </div>
   <div id="main_element"></div>
+  <p id="data_text"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script language="javascript" type="text/javascript">
     // 左角カッコを</a><a><mark id="~">に置換する関数
@@ -59,10 +60,15 @@
 
     url = "text.txt"
     $.get(url,(data) => {
-        console.log(data)
+        document.getElementById("data_text").innerText = data;
+        console.log("data=")
+        console.log(data);
+        console.log("\n innertext=")
+        console.log(document.getElementById("data.txt").innerText)
     });
 
-    
+    console.log("\n innertext=")
+    console.log(document.getElementById("data.txt").innerText)
     // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
     let result = "<a>" + text + "</a><br>";
 
