@@ -57,17 +57,12 @@
     // 置換する文字列
     let text = "";
 
-    let get_text = () => {
-        url = "text.txt"
-        $.get(url,(data) => {
-            return data
-        });
-    }
+    url = "text.txt"
+    $.get(url,(data) => {
+        console.log(data)
+    });
 
-    text = get_text()
-
-    console.log(text)
-
+    
     // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
     let result = "<a>" + text + "</a><br>";
 
