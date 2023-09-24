@@ -70,8 +70,8 @@
 
         // 左角カッコと右角カッコがそれぞれ何個あるか。
         // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
-        let count_L = (result.match(/\[/g) || []).length;
-        let count_R = (result.match(/\]/g) || []).length;
+        count_L = (result.match(/\[/g) || []).length;
+        count_R = (result.match(/\]/g) || []).length;
 
         // 左角カッコをそれぞれ置換
         for (let i = 1; i <= count_L; i++) {
@@ -90,8 +90,6 @@
         // htmlのmain_element要素に挿入
         let element = document.getElementById('main_element');
         element.insertAdjacentHTML('afterbegin', result);
-        count_L = (result.match(/\[/g) || []).length;
-        count_R = (result.match(/\]/g) || []).length;
     });
 
     // 空欄の中身を隠すか表示するかを切り替える関数
