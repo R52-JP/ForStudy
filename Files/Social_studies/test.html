@@ -12,19 +12,20 @@
         line-height: 0.5;
         font-family: "Hiragino Maru Gothic ProN W4";
     }
-    h3 {
-        line-height: 0.5;
-        font-family: "Hiragino Maru Gothic ProN W4";
+    .buttons > a > mark {
+        background-color: #cecece;
     }
-    h4 {
-        line-height: 0.5;
-        font-family: "Hiragino Maru Gothic ProN W4";
+
+    .body > a > mark {
+        background-color: #fff9ac;
     }
   </style>
 </head>
 <body>
   <h1>For Study フォア・スタディー（福江プリント集）</h1>
-  <button onclick="hide_all()">すべて隠す</button><a>　　　　</a><button onclick="show_all()">全て表示</button><br><br>
+  <div class="buttons">
+    <a><mark onclick="hide_all()">（全て隠す）</mark></a><a>　　　</a><a><mark onclick="show_all()">（全て表示）</mark></a><br><br>
+  </div>
   <div id="main_element"></div>
   <script>
     // 左角カッコを</a><a><mark id="~">に置換する関数
