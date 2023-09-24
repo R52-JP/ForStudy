@@ -56,10 +56,12 @@
     };
 
     // 置換する文字列
-    let text = "";
 
     url = "text.txt"
+    let count_L;
+    let count_R;
     $.get(url,(data) => {
+        let text = data;
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
         let result = "<a>" + text + "</a><br>";
 
@@ -88,11 +90,9 @@
         // htmlのmain_element要素に挿入
         let element = document.getElementById('main_element');
         element.insertAdjacentHTML('afterbegin', result);
-
+        count_L = (result.match(/\[/g) || []).length;
+        count_R = (result.match(/\]/g) || []).length;
     });
-
-    let count_L = (result.match(/\[/g) || []).length;
-    let count_R = (result.match(/\]/g) || []).length;
 
     // 空欄の中身を隠すか表示するかを切り替える関数
     let change_color = (id) => {
