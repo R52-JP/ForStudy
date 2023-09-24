@@ -68,9 +68,6 @@
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
         result = "<a>" + result + "</a><br>";
 
-        // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
-        result = result.replace("\n","</a><br>\n<a>");
-
         // 左角カッコと右角カッコがそれぞれ何個あるか。
         // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
         count_L = (result.match(/\[/g) || []).length;
@@ -86,6 +83,9 @@
             result = replace_text_R(result);
         };
 
+        // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
+        result = result.replace("\n","</a><br>\n<a>");
+      
         // 結果を表示
         console.log(result);
 
