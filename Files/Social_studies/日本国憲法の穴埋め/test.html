@@ -62,14 +62,13 @@
     let count_R;
     $.get(url,(data) => {
         let result = data;
-        result = result.replace("  ","　");
-        console.log(result);
+        result = result.replaceAll("  ", "　")
 
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
         result = "<a>" + result + "</a><br>";
 
-        // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
-        result = result.replace("\n","</a><br><a>");
+        // 改行で区切るために，改行（\n）を「</a><br><a>」に置換
+        result = result.replaceAll("\n","</a><br><a>");
 
         // 左角カッコと右角カッコがそれぞれ何個あるか。
         // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
@@ -78,7 +77,7 @@
 
         // 左角カッコをそれぞれ置換
         for (let i = 1; i <= count_L; i++) {
-            result = replace_text_L(result, i);
+            result = result.replace("[","</a><a class=\"mark\"><mark id=\"" + i + "\">");
         };
 
         // 右角カッコをそれぞれ置換
