@@ -43,55 +43,47 @@
   <p id="data_text"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script language="javascript" type="text/javascript">
-    // 左角カッコを</a><a><mark id="~">に置換する関数
-    let replace_text_L = (text, number, index=1) => {
-        let replace_result = "</a><a class=\"mark\"><mark id=\"" + number + "\">"
-        return text.replace(/\[/g, function(match) { if (--index == 0) return replace_result; else return match; });
-    };
-
-    // 右角カッコを</a></mark>に置換する関数
-    let replace_text_R = (text, index=1) => {
-        let replace_result = "</mark></a><a>"
-        return text.replace(/\]/g, function(match) { if (--index == 0) return replace_result; else return match; });
-    };
-
-    // 置換する文字列
 
     url = "text.txt"
     let count_blank;
     $.get(url,(data) => {
-        let result = data;
-        result = result.replaceAll("  ", "　")
 
-        // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
+        // text.txtの中身を取得.
+        let result = data; 
+
+        // テキストファイルを読み込んだ際になぜか全角のスペースが半角のスペース2個になってしまうので,
+        // 半角のスペース2個を全角のスペースに置換.
+        result = result.replaceAll("  ", "　"); 
+
+        // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける.
         result = "<a>" + result + "</a><br>";
 
-        // 改行で区切るために，改行（\n）を「</a><br><a>」に置換
+        // 改行で区切るために，改行（\n）を「</a><br><a>」に置換.
         result = result.replaceAll("\n","</a><br><a>");
 
-        // 左角カッコと右角カッコがそれぞれ何個あるか。
-        // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
+        // 空欄がそれぞれ何個あるかカウント.
         count_blank = (result.match(/\[/g) || []).length;
 
-        // 左角カッコをそれぞれ置換
+        // 左角カッコをそれぞれ置換.
+        // </a><a class="mark"><mark id="~">に置換.
         for (let i = 1; i <= count_blank; i++) {
             result = result.replace("[","</a><a class=\"mark\"><mark id=\"" + i + "\">");
         };
 
-        // 右角カッコをそれぞれ置換
+        // 右角カッコを置換.
+        // </mark></a><a>に置換.
         result = result.replaceAll("]", "</mark></a><a>");
 
-        // 結果を表示
-        console.log(result);
-
-
-        // htmlのmain_element要素に挿入
+        // htmlのmain_element要素に挿入.
         let element = document.getElementById('main_element');
         element.insertAdjacentHTML('afterbegin', result);
+
+        // bind関数を実行.
+        // *bind関数...空欄のon_clickイベントとchange_color関数を結びつける関数.
         bind();
     });
 
-    // 空欄の中身を隠すか表示するかを切り替える関数
+    // 空欄の中身を隠すか表示するかを切り替える関数.
     let change_color = (id) => {
         let a = document.getElementById(id);
         if (a.style.color == "black") { 
@@ -102,7 +94,7 @@
         };
     };
 
-    // 空欄の中身をすべて隠す関数
+    // 空欄の中身をすべて隠す関数.
     let hide_all = () => {
         for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
@@ -110,7 +102,7 @@
         }
     }
 
-    // 空欄の中身をすべて表示する関数
+    // 空欄の中身をすべて表示する関数.
     let show_all = () => {
         for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
@@ -118,7 +110,7 @@
         };
     };
 
-    // 空欄のon_clickイベントとchange_color()関数を結びつける関数
+    // 空欄のon_clickイベントとchange_color関数を結びつける関数.
     let bind = () => {
         for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
@@ -127,9 +119,6 @@
         };
         show_all()
     };
-
-    // bind()関数を実行
-    bind()
 
   </script>
 </body>
