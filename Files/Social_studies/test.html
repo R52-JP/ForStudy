@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>For Study フォア・スタディー（福江プリント集）</title>
+  <style>
+    h1 {
+        border-bottom: double 5px #FFC778;
+    }
+    a {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
+    }
+    h3 {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
+    }
+    h4 {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
+    }
+  </style>
+</head>
+<body>
+  <h1>For Study フォア・スタディー（福江プリント集）</h1>
+  <button onclick="hide_all()">すべて隠す</button><a>　　　　</a><button onclick="show_all()">全て表示</button><br><br>
+  <div id="main_element"></div>
+  <script>
+    // 左角カッコを</a><a><mark id="~">に置換する関数
+    let replace_text_L = (text, number, index=1) => {
+        let replace_result = "</a><a><mark id=\"" + number + "\">"
+        return text.replace(/\[/g, function(match) { if (--index == 0) return replace_result; else return match; });
+    };
+
+    // 右角カッコを</a></mark>に置換する関数
+    let replace_text_R = (text, index=1) => {
+        let replace_result = "</mark></a>"
+        return text.replace(/\]/g, function(match) { if (--index == 0) return replace_result; else return match; });
+    };
+
+    // 置換する文字列
+    let text =
+    `第一条〔天皇の地位と主権在民〕
+    　天皇は，[日本国]の[象徴]であり[日本国民統合]の[象徴]であって，この地位は，主権の存する日本国民の総意に基づく。`;
+
+    // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
+    let result = "<a>" + text + "</a><br>";
+
+    // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
+    result = result.replace("\n","</a><br>\n<a>");
+
+    // 左角カッコと右角カッコがそれぞれ何個あるか。
+    // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
+    let count_L = (result.match(/\[/g) || []).length;
+    let count_R = (result.match(/\]/g) || []).length;
+
+    // 左角カッコをそれぞれ置換
+    for (let i = 1; i <= count_L; i++) {
+        result = replace_text_L(result, i);
+    };
+
+    // 右角カッコをそれぞれ置換
+    for (let i = 1; i <= count_R; i++) {
+        result = replace_text_R(result);
+    };
+
+    // 結果を表示
+    console.log(result);
+
+
+    // htmlのmain_element要素に挿入
+    let element = document.getElementById('main_element');
+    element.insertAdjacentHTML('afterbegin', result);
+
+    // 空欄の中身を隠すか表示するかを切り替える関数
+    let change_color = (id) => {
+        let a = document.getElementById(id);
+        if (a.style.color == "black") { 
+            a.style.color = "#fff9ac";
+        }
+        else {
+            a.style.color = "black";
+        };
+    };
+
+    // 空欄の中身をすべて隠す関数
+    let hide_all = () => {
+        for (let i=1; i<=count_L; i++) {
+            let a = document.getElementById(String(i));
+            a.style.color = "#fff9ac";
+        }
+    }
+
+    // 空欄の中身をすべて表示する関数
+    let show_all = () => {
+        for (let i=1; i<=count_L; i++) {
+            let a = document.getElementById(String(i));
+            a.style.color = "black";
+        };
+    };
+
+    // 空欄のon_clickイベントとchange_color()関数を結びつける関数
+    let bind = () => {
+        for (let i=1; i<=count_L; i++) {
+            let a = document.getElementById(String(i));
+            let clickevent = "change_color(\"" + String(i) + "\")";
+            a.setAttribute("onclick", clickevent);
+        };
+        show_all()
+    };
+
+    // bind()関数を実行
+    bind()
+
+  </script>
+</body>
+</html>
