@@ -58,8 +58,7 @@
     // 置換する文字列
 
     url = "text.txt"
-    let count_L;
-    let count_R;
+    let count_blank;
     $.get(url,(data) => {
         let result = data;
         result = result.replaceAll("  ", "　")
@@ -72,18 +71,15 @@
 
         // 左角カッコと右角カッコがそれぞれ何個あるか。
         // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
-        count_L = (result.match(/\[/g) || []).length;
-        count_R = (result.match(/\]/g) || []).length;
+        count_blank = (result.match(/\[/g) || []).length;
 
         // 左角カッコをそれぞれ置換
-        for (let i = 1; i <= count_L; i++) {
+        for (let i = 1; i <= count_blank; i++) {
             result = result.replace("[","</a><a class=\"mark\"><mark id=\"" + i + "\">");
         };
 
         // 右角カッコをそれぞれ置換
-        for (let i = 1; i <= count_R; i++) {
-            result = replace_text_R(result);
-        };
+        result = result.replaceAll("]", "</mark></a><a>");
 
         // 結果を表示
         console.log(result);
@@ -108,7 +104,7 @@
 
     // 空欄の中身をすべて隠す関数
     let hide_all = () => {
-        for (let i=1; i<=count_L; i++) {
+        for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
             a.style.color = "yellow";
         }
@@ -116,7 +112,7 @@
 
     // 空欄の中身をすべて表示する関数
     let show_all = () => {
-        for (let i=1; i<=count_L; i++) {
+        for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
             a.style.color = "black";
         };
@@ -124,7 +120,7 @@
 
     // 空欄のon_clickイベントとchange_color()関数を結びつける関数
     let bind = () => {
-        for (let i=1; i<=count_L; i++) {
+        for (let i=1; i<=count_blank; i++) {
             let a = document.getElementById(String(i));
             let clickevent = "change_color(\"" + String(i) + "\")";
             a.setAttribute("onclick", clickevent);
