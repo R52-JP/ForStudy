@@ -60,43 +60,36 @@
 
     url = "text.txt"
     $.get(url,(data) => {
-        document.getElementById("data_text").innerText = data;
-        console.log("data=")
-        console.log(data);
-        console.log("\n innertext=")
-        console.log(document.getElementById("data.txt").innerText)
+        // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
+        let result = "<a>" + text + "</a><br>";
+
+        // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
+        result = result.replace("\n","</a><br>\n<a>");
+
+        // 左角カッコと右角カッコがそれぞれ何個あるか。
+        // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
+        let count_L = (result.match(/\[/g) || []).length;
+        let count_R = (result.match(/\]/g) || []).length;
+
+        // 左角カッコをそれぞれ置換
+        for (let i = 1; i <= count_L; i++) {
+            result = replace_text_L(result, i);
+        };
+
+        // 右角カッコをそれぞれ置換
+        for (let i = 1; i <= count_R; i++) {
+            result = replace_text_R(result);
+        };
+
+        // 結果を表示
+        console.log(result);
+
+
+        // htmlのmain_element要素に挿入
+        let element = document.getElementById('main_element');
+        element.insertAdjacentHTML('afterbegin', result);
+
     });
-
-    console.log("\n innertext=")
-    console.log(document.getElementById("data.txt").innerText)
-    // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
-    let result = "<a>" + text + "</a><br>";
-
-    // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
-    result = result.replace("\n","</a><br>\n<a>");
-
-    // 左角カッコと右角カッコがそれぞれ何個あるか。
-    // (左角カッコの数)＝(右角カッコの数)となるはずだが一応どっちともカウントしておく。
-    let count_L = (result.match(/\[/g) || []).length;
-    let count_R = (result.match(/\]/g) || []).length;
-
-    // 左角カッコをそれぞれ置換
-    for (let i = 1; i <= count_L; i++) {
-        result = replace_text_L(result, i);
-    };
-
-    // 右角カッコをそれぞれ置換
-    for (let i = 1; i <= count_R; i++) {
-        result = replace_text_R(result);
-    };
-
-    // 結果を表示
-    console.log(result);
-
-
-    // htmlのmain_element要素に挿入
-    let element = document.getElementById('main_element');
-    element.insertAdjacentHTML('afterbegin', result);
 
     // 空欄の中身を隠すか表示するかを切り替える関数
     let change_color = (id) => {
