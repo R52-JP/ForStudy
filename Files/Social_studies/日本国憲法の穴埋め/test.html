@@ -66,10 +66,12 @@
         result = result.replaceAll("\n","</a><br><a>");
 
         // 空欄がそれぞれ何個あるかカウント.
+        // 左角カッコの数でカウント.
         count_blank = (result.match(/\[/g) || []).length;
 
         // 左角カッコをそれぞれ置換.
         // </a><a class="mark"><mark id="~">に置換.
+        // それぞれの空欄(markタグ)にはそれぞれ別のIDを付与.
         for (let i = 1; i <= count_blank; i++) {
             result = result.replace("[","</a><a class=\"mark\"><mark id=\"" + i + "\">");
         };
