@@ -8,7 +8,7 @@
     h1 {
         border-bottom: double 5px #FFC778;
     }
-    a {
+    .mark {
         line-height: 0.5;
         font-family: "Hiragino Maru Gothic ProN W4";
     }
@@ -26,7 +26,7 @@
   <script>
     // 左角カッコを</a><a><mark id="~">に置換する関数
     let replace_text_L = (text, number, index=1) => {
-        let replace_result = "</a><a><mark id=\"" + number + "\">"
+        let replace_result = "</a><a class=\"mark\"><mark id=\"" + number + "\">"
         return text.replace(/\[/g, function(match) { if (--index == 0) return replace_result; else return match; });
     };
 
