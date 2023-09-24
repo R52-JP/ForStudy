@@ -90,6 +90,7 @@
         // htmlのmain_element要素に挿入
         let element = document.getElementById('main_element');
         element.insertAdjacentHTML('afterbegin', result);
+        bind();
     });
 
     // 空欄の中身を隠すか表示するかを切り替える関数
