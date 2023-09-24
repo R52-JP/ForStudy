@@ -15,10 +15,6 @@
     .buttons > a > mark {
         background-color: #cecece;
     }
-
-    .body > a > mark {
-        background-color: #fff9ac;
-    }
   </style>
 </head>
 <body>
@@ -78,7 +74,7 @@
     let change_color = (id) => {
         let a = document.getElementById(id);
         if (a.style.color == "black") { 
-            a.style.color = "#fff9ac";
+            a.style.color = "yellow";
         }
         else {
             a.style.color = "black";
@@ -89,7 +85,7 @@
     let hide_all = () => {
         for (let i=1; i<=count_L; i++) {
             let a = document.getElementById(String(i));
-            a.style.color = "#fff9ac";
+            a.style.color = "yellow";
         }
     }
 
