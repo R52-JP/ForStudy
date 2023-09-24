@@ -62,6 +62,7 @@
     let count_R;
     $.get(url,(data) => {
         let text = data;
+        console.log(text);
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
         let result = "<a>" + text + "</a><br>";
 
