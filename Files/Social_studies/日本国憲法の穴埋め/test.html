@@ -63,7 +63,7 @@
     $.get(url,(data) => {
         let result = data;
         result = result.replace("  ","　");
-        console.log(text);
+        console.log(result);
 
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
         result = "<a>" + result + "</a><br>";
