@@ -16,6 +16,10 @@
     a {
       font-size: 110%;
     }
+    p {
+      font-family: "Hiragino Maru Gothic ProN W4";
+      font-size: 110%;
+    }
     
     .mark {
         line-height: 0.5;
@@ -36,6 +40,7 @@
 <body>
   <h1>For Study フォア・スタディー（福江プリント集）</h1>
   <h2>日本国憲法の穴埋め</h2>
+  <p>※空欄をタップすることで表示・非表示を切り替えることができます。</p>
   <div class="buttons">
     <a><mark onclick="hide_all()">（すべて隠す）</mark></a><a>　　　</a><a><mark onclick="show_all()">（すべて表示）</mark></a><br><br>
   </div>
@@ -117,7 +122,7 @@
             let clickevent = "change_color(\"" + String(i) + "\")";
             a.setAttribute("onclick", clickevent);
         };
-        show_all()
+        hide_all()
     };
 
   </script>
