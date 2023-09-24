@@ -61,10 +61,12 @@
     let count_L;
     let count_R;
     $.get(url,(data) => {
-        let text = data;
+        let result = data;
+        result = result.replace("  ","　");
         console.log(text);
+
         // はじめと末尾にそれぞれ「<a>」と「</a><br>」をつける
-        let result = "<a>" + text + "</a><br>";
+        result = "<a>" + result + "</a><br>";
 
         // 改行で区切るために，改行（\n）を「</a><br>（改行）<a>」に置換
         result = result.replace("\n","</a><br>\n<a>");
