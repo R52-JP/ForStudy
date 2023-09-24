@@ -57,10 +57,14 @@
     // 置換する文字列
     let text = "";
 
-    const url = "text.txt"
-    $.get(url,(data) => {
-        text = data
-    });
+    let get_text = () => {
+        url = "text.txt"
+        $.get(url,(data) => {
+            return data
+        });
+    }
+
+    text = get_text()
 
     console.log(text)
 
