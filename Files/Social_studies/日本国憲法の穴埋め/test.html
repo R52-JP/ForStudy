@@ -91,6 +91,9 @@
 
     });
 
+    let count_L = (result.match(/\[/g) || []).length;
+    let count_R = (result.match(/\]/g) || []).length;
+
     // 空欄の中身を隠すか表示するかを切り替える関数
     let change_color = (id) => {
         let a = document.getElementById(id);
