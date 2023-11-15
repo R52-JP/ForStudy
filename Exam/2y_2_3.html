@@ -61,12 +61,16 @@
 
     <script>
     let a = document.getElementById("a");
+    let which = false
     let change = () => {
-      console.log("a")
-      if (a.innnerText = "・サポートブック(３年)Ｐ16〜25") {
-        a.innnerText = "・サポートブック(３年)Ｐ4²〜5²";
+      if (which == false) {
+        //a.textContent = start_str
+        a.textContent = "・サポートブック(３年)Ｐ4²〜5²";
+        which = true;
       } else {
-        a.innnerText = "・サポートブック(３年)Ｐ16〜25"
+        //a.textContent = start_str
+        a.textContent = "・サポートブック(３年)Ｐ16～25";
+        which = false;
       };
     };
   </script>
