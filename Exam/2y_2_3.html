@@ -22,7 +22,19 @@
   </style>
 </head>
 <body>
-  <script></script>
+  <script>
+    let hide = true
+    let a = getElementById("a")
+    let change = () => {
+      if hide {
+        a.innnerText = " ・サポートブック(３年)Ｐ4²〜5²"
+        hide = false
+      } else {
+        a.innnerText = " ・サポートブック(３年)Ｐ16〜25"
+        hide = true
+      }
+    }
+  </script>
   <h1>For Study フォア・スタディー（福江プリント集）</h1>
   <a>〔国　語〕</a><br>
   <a> ・「故郷」</a><br>
@@ -41,7 +53,7 @@
   <a>〔英　語〕</a><br>
   <a> ・教科書(３年)Ｐ51〜77</a><br>
   <a> ・必修テキスト(３年)Ｐ64〜97</a><br>
-  <a> ・サポートブック(３年)Ｐ16〜25</a><br><br>
+  <a onclick="change()" id="a"> ・サポートブック(３年)Ｐ16〜25</a><br><br>
 
   <a>〔美　術〕</a><br>
   <a>　　不明</a><br><br>
