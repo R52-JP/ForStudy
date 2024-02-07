@@ -15,6 +15,10 @@
         font-family: "Hiragino Maru Gothic ProN W4";
         font-size: 175%;
     }
+    button {
+      font-family: "Hiragino Maru Gothic ProN W4";
+      font-size: 25px;
+    }
   </style>
 </head>
 <body>
@@ -37,6 +41,12 @@
       $("#main_element1").append("{\\huge" + data[random_num][1] + "}");
 
       $("#main_element1").append("\\end\{align\}");
+
+      $("#answer1").html("\\begin\{align\}");
+
+      $("#answer1").append("");
+
+      $("#answer1").append("\\end\{align\}");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
     };
 
@@ -47,8 +57,32 @@
       $("#main_element2").append("{\\huge" + data[random_num][0] + "}");
 
       $("#main_element2").append("\\end\{align\}");
+      
+      $("#answer2").html("\\begin\{align\}");
+
+      $("#answer2").append("");
+
+      $("#answer2").append("\\end\{align\}");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
     };
+
+    let show_answer1 = () => {
+      $("#answer1").html("\\begin\{align\}");
+
+      $("#answer1").append("答え：{\\Large" + data[random_num][0] + "}");
+
+      $("#answer1").append("\\end\{align\}");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
+    };
+
+    let show_answer2 = () => {
+      $("#answer2").html("\\begin\{align\}");
+
+      $("#answer2").append("答え：{\\Large" + data[random_num][1] + "}");
+
+      $("#answer2").append("\\end\{align\}");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
+    }
   </script>
   <h1>For Study フォア・スタディー（福江プリント集）</h1>
   <h2>イオン式</h2>
@@ -57,7 +91,8 @@
     （ここにイオン式が表示されます。）
     \end{align}
   </div>
-  <button onclick="change1()" style="text-align: center">イオン式ガチャを回す</button>
+  <div style="text-align: center"><button onclick="change1()">イオン式ガチャを回す</button><a>　　　　　</a><button onclick="show_answer1()">答えを表示</button></div></div>
+  <div id="answer1"></div>
   <br><br><br>
   <h1 style="border-bottom: double 5px #000000;"></h1>
   <br>
@@ -66,7 +101,8 @@
     （ここにイオン名が表示されます。）
     \end{align}
   </div>
-  <button onclick="change2()" style="text-align: center">イオン名ガチャを回す</button>
+  <div style="text-align: center"><button onclick="change2()">イオン名ガチャを回す</button><a>　　　　　</a><button onclick="show_answer2()">答えを表示</button></div>
+  <div id="answer2"></div>
 
 </body>
 </html>
