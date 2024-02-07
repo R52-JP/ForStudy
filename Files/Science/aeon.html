@@ -33,12 +33,13 @@
       ["フッ化物イオン", "\\mathrm{F}^{-}"], ["塩化物イオン", "\\mathrm{Cl}^{-}"], ["臭化物イオン", "\\mathrm{Br}^{-}"], ["ヨウ化物イオン", "\\mathrm{I}^{-}"], ["水酸化物イオン", "\\mathrm{OH}^{-}"], ["硝酸イオン", "{\\mathrm{NO}_3}^{-}"], ["酢酸イオン", "\\mathrm{CH}_3\\mathrm{COO}^{-}"], 
       ["酸化物イオン", "\\mathrm{O}^{2-}"], ["硫化物イオン", "\\mathrm{S}^{2-}"], ["炭酸イオン", "{\\mathrm{CO}_3}^{2-}"], ["硫酸イオン", "{\\mathrm{SO}_4}^{2-}"], ["リン酸イオン", "{\\mathrm{PO}_4}^{3-}"]
     ]
-    let random_num;
+    let random_num1;
+    let random_num2;
     let change1 = () => {
-      random_num = Math.floor( Math.random() * data.length );
+      random_num1 = Math.floor( Math.random() * data.length );
       $("#main_element1").html("\\begin\{align\}");
 
-      $("#main_element1").append("{\\huge" + data[random_num][1] + "}");
+      $("#main_element1").append("{\\huge" + data[random_num1][1] + "}");
 
       $("#main_element1").append("\\end\{align\}");
 
@@ -51,10 +52,10 @@
     };
 
     let change2 = () => {
-      random_num = Math.floor( Math.random() * data.length );
+      random_num2 = Math.floor( Math.random() * data.length );
       $("#main_element2").html("\\begin\{align\}");
 
-      $("#main_element2").append("{\\huge" + data[random_num][0] + "}");
+      $("#main_element2").append("{\\huge" + data[random_num2][0] + "}");
 
       $("#main_element2").append("\\end\{align\}");
       
@@ -69,7 +70,7 @@
     let show_answer1 = () => {
       $("#answer1").html("\\begin\{align\}");
 
-      $("#answer1").append("答え：{\\Large" + data[random_num][0] + "}");
+      $("#answer1").append("答え：{\\Large" + data[random_num1][0] + "}");
 
       $("#answer1").append("\\end\{align\}");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
@@ -78,7 +79,7 @@
     let show_answer2 = () => {
       $("#answer2").html("\\begin\{align\}");
 
-      $("#answer2").append("答え：{\\Large" + data[random_num][1] + "}");
+      $("#answer2").append("答え：{\\Large" + data[random_num2][1] + "}");
 
       $("#answer2").append("\\end\{align\}");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,"quMain"]);
