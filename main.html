@@ -4,242 +4,36 @@
   <meta charset="utf-8">
   <title>For Study フォア・スタディー（福江プリント集）</title>
   <style>
-    @font-face {
-      font-family: 'MPlus1-Ebold'; 
-      src: url('https://r52-jp.github.io/WORDS/Fonts/MPLUS1-ExtraBold.ttf') format('truetype');
-    }
-    @font-face {
-      font-family: 'MPlus1-Regular'; 
-      src: url('https://r52-jp.github.io/WORDS/Fonts/MPLUS1-Regular.ttf') format('truetype');
-    }
     h1 {
-        font-weight: normal;
         border-bottom: double 5px #FFC778;
-        line-height: 1.5;
-        font-family: "MPlus1-Ebold";
     }
-    .amount {
-      line-height: 0.5;
-      font-family: "MPlus1-Ebold";
+    a {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
     }
-    .underline {
-      border-bottom: solid
+    h3 {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
     }
-    p {
-      font-family: "MPlus1-Ebold";
-      text-align: center;
-      font-size:50px;
-    }
-    .underline {
-      font-size:0px;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      opacity: 0;
-    }
-    .slider {
-      -webkit-appearance: none;/* CSS適用のおまじない */
-      appearance: none;/* CSS適用のおまじない */
-      background: lightgreen;/* バーの色 */
-      width: 100%;
-    }
-    select {
-      font-family: "MPlus1-Ebold";
-      font-size:20px;
-    }
-    .put_ans {
-      width: 100px;
-      font-family: "MPlus1-Ebold";
-      font-size:20px;
-    }
-    .ans {
-      font-family: "MPlus1-Ebold";
-      font-size:20px;
-      text-align: center;
-    }
-    button {
-      font-family: "MPlus1-Ebold";
-      font-size:20px;
-    }
-    .real_ans {
-      font-family: 'MPlus1-Ebold'; 
-      font-size: 30px;
-      line-height: 1;
-    }
-    .goro {
-      font-family: 'MPlus1-Regular'; 
-      font-size: 20px;
-      line-height: 1;
-      margin:auto
-    }
-    .goro > ruby {
-      font-family: 'MPlus1-Regular'; 
-      font-size: 25px;
-      line-height: 1;
-    }
-    .TorF {
-      width: 100%;
+    h4 {
+        line-height: 0.5;
+        font-family: "Hiragino Maru Gothic ProN W4";
     }
   </style>
 </head>
 <body>
-  <h1>【世界史】基本年代テスト！</h1>
-  <div id="slider_div"><input type="range" min="0" max="2" step="1" value="0" class="slider" disabled></div>
-  <p id="problem">[次へ]を押して開始</p>
-  <p class="underline"></p><br>
-  <div class="ans">
-    <select name="AD/BC" id="AD/BC" disabled><option value="AD">紀元後</option><option value="BC">紀元前</option></select>
-    <input class="put_ans" id="put_ans" type="number" disabled></input>
-    <a>年　</a><button id="check" disabled>回答</button><a>　</a><button id="next">次へ</button>
-  </div>
-  <p id="T/F" class="TorF">　</p>
-  <p class="underline"></p>
-  <div id="ans_viewer"></div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script language="javascript" type="text/javascript">
-    let data; // (A).
-    url = "https://r52-jp.github.io/ERA-GOTCHA/data.txt";
-    $.get(url, (data_) => {
-      data = data_ // (A)に値を代入.
-    });
-
-    /*【関数】バーの色を現在値に合わせる */
-    function setSeekbar() {
-      let slider = document.querySelector('.slider'); // input 要素を取得.
-      // 値の取得
-      let now = parseFloat(slider.value); // 現在値.
-      let max = parseFloat(slider.getAttribute('max')); // 最大値.
-      let min = parseFloat(slider.getAttribute('min')); // 最小値.
-      // 現在値がバーではどの位置［％］なのかを計算
-      let percent = (now - min) / (max - min) * 100;
-      // 算出した位置［％］を linear-gradient に適用
-      slider.style.background = `linear-gradient(to right, orange ${percent}%, lightgray ${percent}%)`; 
-    };
-    /* 初期値に合わせてバーの色を変える */
-    setSeekbar();
-
-    //リストをシャッフルする関数(Fisher-Yates法).
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    };
-    
-    let now_num = -1; // 現在表示している問題番号(0~).
-    let problem_label = document.getElementById("problem");
-
-    // 初期化・・・「dataの値の整理(リスト化など)」「回答欄を選択可能にする」.
-    function init() {
-      // 改行コードでdata(文字列)を分割→data(リスト).
-      data = data.split("\n");
-      // dataの要素のうち，値が「""」であるものを削除.
-      for (let i=0; i<data.length; i++) {
-        if (data[i] == "") {
-          data.splice(i, i);
-        };
-      };
-      // ":"でdataの各要素を分割.
-      for (let i=0; i<data.length; i++) {
-        data[i] = data[i].split(":");
-      };
-      data = shuffle(data)
-
-      document.getElementById("AD/BC").removeAttribute("disabled"); // 紀元前/紀元後リストを選択可能に.
-      document.getElementById("put_ans").removeAttribute("disabled"); // 年代の回答欄を選択可能に.
-    };
-    
-    // 次の問題を表示する関数(「次へ」ボタンのonclickイベント).
-    function view_next() {
-      if (now_num == -1) {
-        init() // 初回のみ実行.
-      };
-      // 年代テストが終わった時の処理.
-      if (now_num == data.length - 1) {
-        document.getElementById("T/F").innerText = "終了！";
-        document.getElementById("T/F").style.color = "#99CC33";
-        document.getElementById("next").setAttribute("disabled", true); // 「次へ」ボタンを選択不可能に.
-        document.getElementById("check").setAttribute("disabled", true); // 「回答」ボタンを選択不可能に.
-        document.getElementById("AD/BC").value = "AD"; // 紀元後(デフォルトの値)に指定.
-        document.getElementById("put_ans").value = ""; // 年代の回答欄を空欄に指定.
-        document.getElementById("AD/BC").setAttribute("disabled", true); // 紀元前/紀元後リストを選択不可能に.
-        document.getElementById("put_ans").setAttribute("disabled", true); // 年代の回答欄を選択不可能に.
-        document.getElementById("ans_viewer").innerHTML = 
-            `<a class="goro">これにて世界史の基本年代テストは終了です。お疲れさまでした。</a><br>
-            <a class="goro">再度挑戦したい方は，</a>
-            <a class="goro" href="https://r52-jp.github.io/ForStudy/Exam/2y_2_1.html">ここ</a>
-            <a class="goro">を押してください。</a>`;
-        return "finish";
-      }
-      document.getElementById("check").removeAttribute("disabled"); // 「回答」ボタンを選択可能に.
-      document.getElementById("next").setAttribute("disabled", true); // 「次へ」ボタンを選択不可能に.
-      now_num = now_num + 1;
-      console.log(data[now_num]);
-      problem_label.innerText = data[now_num][0] // 「問題」を表示.
-      // 一通りリセットする.
-      document.getElementById("AD/BC").value = "AD";
-      document.getElementById("put_ans").value = "";
-      document.getElementById("T/F").innerText = "　";
-      document.getElementById("ans_viewer").innerHTML = "";
-
-      // 進捗バーを更新.
-      document.getElementById("slider_div").innerHTML = `<input type="range" min="0" max="2" step="1" value="` + String(now_num+1) + `" class="slider" disabled>`
-      setSeekbar();
-      
-    }
-
-    // 回答を確認する関数.
-    function check_answer() {
-      // 要素を取得.
-      let TorF = document.getElementById("T/F");
-      let ans_value = document.getElementById("put_ans");
-      // 回答欄が空欄の場合，alertする.
-      if (ans_value.value == "") {
-        alert("回答を入力してください");
-        return;
-      };
-      // 「次へ」ボタンを選択可能に, 「回答」ボタンを選択不可能にする.
-      document.getElementById("next").removeAttribute("disabled");
-      document.getElementById("check").setAttribute("disabled", true);
-
-      if (data[now_num][1].indexOf('前') > -1) { 
-        // 紀元前の場合.
-        if ( (document.getElementById("AD/BC").value == "BC")&&(ans_value.value == data[now_num][1].substr(1)) ) {
-          console.log("正解です！")
-          TorF.innerText = "正解！";
-          TorF.style.color = "red";
-          view_ans();
-        } else {
-          console.log("不正解です！")
-          TorF.innerText = "不正解...";
-          TorF.style.color = "blue";
-          view_ans();
-        }
-      } else {
-        // 紀元後の場合.
-        if ( (document.getElementById("AD/BC").value == "AD")&&(ans_value.value == data[now_num][1]) ) {
-          console.log("正解です！")
-          TorF.innerText = "正解！";
-          TorF.style.color = "red";
-          view_ans();
-        } else {
-          console.log("不正解です！");
-          TorF.innerText = "不正解...";
-          TorF.style.color = "blue";
-          view_ans();
-        }
-      };
-    };
-
-    // 解答を表示する関数.
-    function view_ans() {
-      let real_answer_HTML = `<p class="real_ans"><mark>【` + data[now_num][0] + "】：" + data[now_num][1] + "年</mark></p><br>" // ex.<a>バビロン捕囚の開始：前586年</a><br>
-      let goro_HTML = `<p class="goro">語呂合わせ：` + data[now_num][2].split("{").join("<ruby>").split("}").join("</ruby>").split("[").join("<rt>").split("]").join("</rt>") + "</p>"
-      document.getElementById("ans_viewer").innerHTML = real_answer_HTML + goro_HTML;
-    };
-
-    document.getElementById("next").setAttribute("onclick", "view_next()");
-    document.getElementById("check").setAttribute("onclick", "check_answer()");
-  </script>
+  <script></script>
+  <h1>For Study フォア・スタディー（福江プリント集）</h1>
+  <h3>【テスト範囲に準拠したプリント】</h3>
+  <a>〔2年〕</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Exam/2y_2_1.html" target="_blank" rel="noopener noreferrer">夏期課題考査</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Exam/2y_2_2.html" target="_blank" rel="noopener noreferrer">２学期中間考査</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Exam/2y_2_3.html" target="_blank" rel="noopener noreferrer">２学期期末考査</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Exam/2y_3_3.html" target="_blank" rel="noopener noreferrer">学年末考査</a><br><br><br><br>
+  <h3>【テスト範囲外・まとめのプリントなど】</h3>
+  <a>〔公民〕</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Files/Social_studies/日本国憲法の穴埋め/test.html" target="_blank" rel="noopener noreferrer">日本国憲法の穴埋め(web版)</a><br><br>
+  <a>〔理科〕</a><br>
+  <a href="https://r52-jp.github.io/ForStudy/Files/Science/aeon.html" target="_blank" rel="noopener noreferrer">イオン式・イオン名ガチャ</a>
 </body>
 </html>
